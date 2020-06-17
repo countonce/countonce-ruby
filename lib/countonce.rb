@@ -63,7 +63,7 @@ class CountOnce
 
     if query_options[:include]
       if query_options[:include].is_a? Array
-        includes.each {|val| url_params["include[]"] = val}
+        query_options[:include].each {|val| url_params["include[]"] = val}
       else
         url_params["include"] = query_options[:include]
       end
