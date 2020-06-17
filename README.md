@@ -32,7 +32,7 @@ co_client = CountOnce.new({
 begin
 
   response = co_client.ping({
-    key: "account_action",
+    key: "<key>",
     attributes: {
       account_id: "<attribute value>",
       action: "<attribute value>"
@@ -61,7 +61,7 @@ co_client = CountOnce.new({
 begin
 
   co_client.async.ping({
-    key: "account_action",
+    key: "<key>",
     attributes: {
       account_id: "<attribute value>",
       action: "<attribute value>"
@@ -91,7 +91,7 @@ query_options = {
 
 begin
 
-  data = co_client.getUniques("account_action", query_options)
+  data = co_client.getUniques("<key>", query_options)
   p data.json
 
 rescue StandardError => e
@@ -116,7 +116,7 @@ query_options = {
 
 begin
 
-  co_client.async.getUniques("account_action", query_options).then {|data|
+  co_client.async.getUniques("<key>", query_options).then {|data|
     p data.value.json
   }
 
