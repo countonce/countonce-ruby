@@ -56,8 +56,9 @@ co_client = CountOnce.new({
 })
 
 query_options = {
-  metric: daily
+  metric: "daily"
 }
+
 begin
 
   co_client.async.getUniques("account_action", query_options).then do |data|
