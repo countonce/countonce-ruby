@@ -26,7 +26,7 @@ class CountOnce
 
   def ping(ping_options = {})
     url_params = {}
-    url_params["key"] = ping_options[:key] || "",
+    url_params["key"] = ping_options[:key] || ""
     url_params["unique_value"] = ping_options[:unique_value] || ""
     
     headers = {}
