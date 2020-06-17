@@ -20,8 +20,55 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Ping
+```ruby
+require "countonce"
 
-## License
+co_client = CountOnce.new({
+  account_id: "account1",
+  auth_token: "<your api auth token>"
+})
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+begin
+
+  co_client.async.ping({
+    key: "account_action",
+    attributes: {
+      account_id: "<attribute value>",
+      action: "<attribute value>"
+    },
+    unique_value: "<unique id or hash>",
+    revenue: 0.00
+  }).then {|response| puts response.value.json}
+
+rescue StandardError => e
+  puts e.message
+
+end
+```
+### Query
+```ruby
+require "countonce"
+
+co_client = CountOnce.new({
+  account_id: "account1", 
+  auth_token: "<your api auth token>"
+})
+
+query_options = {
+  metric: daily
+}
+begin
+
+  co_client.async.getUniques("account_action", query_options).then do |data|
+    data = data.value.json
+    data.each do |item|
+      puts item["attributes"]
+    end 
+  end
+
+rescue StandardError => e
+  puts e.message
+
+end
+```
