@@ -31,6 +31,35 @@ co_client = CountOnce.new({
 
 begin
 
+  response = co_client.ping({
+    key: "account_action",
+    attributes: {
+      account_id: "<attribute value>",
+      action: "<attribute value>"
+    },
+    unique_value: "<unique id or hash>",
+    revenue: 0.00
+  })
+  puts response.json
+
+rescue StandardError => e
+  puts e.message
+
+end
+```
+
+>The '.then' function only works on Windows for now. Hence, the following example is Windows only.
+
+```ruby
+require "countonce"
+
+co_client = CountOnce.new({
+  account_id: "account1",
+  auth_token: "<your api auth token>"
+})
+
+begin
+
   co_client.async.ping({
     key: "account_action",
     attributes: {
@@ -46,6 +75,7 @@ rescue StandardError => e
 
 end
 ```
+
 ### Query
 ```ruby
 require "countonce"
@@ -61,15 +91,39 @@ query_options = {
 
 begin
 
-  co_client.async.getUniques("account_action", query_options).then do |data|
-    data = data.value.json
-    data.each do |item|
-      puts item["attributes"]
-    end 
-  end
+  data = co_client.getUniques("account_action", query_options)
+  p data.json
 
 rescue StandardError => e
   puts e.message
 
 end
 ```
+
+>Same case as for the ping example. You can use the ```then``` function but only with Windows.
+
+```ruby
+require "countonce"
+
+co_client = CountOnce.new({
+  account_id: "account1", 
+  auth_token: "<your api auth token>"
+})
+
+query_options = {
+  metric: "daily"
+}
+
+begin
+
+  co_client.async.getUniques("account_action", query_options).then {|data|
+    p data.value.json
+  }
+
+rescue StandardError => e
+  puts e.message
+
+end
+```
+
+For more information on async, please refer to the concurrent-ruby's documentation.
