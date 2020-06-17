@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
 
   # dependencies
   spec.add_dependency "httparty", "~> 0.18.0"
-  # spec.add_dependency "concurrent-ruby", "~> 1.1.6"
+  spec.add_dependency "concurrent-ruby", "~> 1.1.6"
 end
