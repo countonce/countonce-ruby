@@ -25,32 +25,6 @@ class CountOnce
   end
 
   def ping(ping_options = {})
-    self.async._ping(ping_options)
-  end
-
-  def query(key_name, query_type, query_options = {}, iterator = nil)
-    self.async._query(key_name, query_type, query_options, iterator)
-  end
-
-  def getUniques(key_name, query_options = {}, iterator = nil)
-    self.query(key_name, 'uniques', query_options, iterator)
-  end
-
-  def getCounts(key_name, query_options = {}, iterator = nil)
-    self.query(key_name, 'counts', query_options, iterator)
-  end
-
-  def getRevenue(key_name, query_options = {}, iterator = nil)
-    self.query(key_name, 'revenue', query_options, iterator)
-  end
-
-  def getCombined(key_name, query_options = {}, iterator = nil)
-    self.query(key_name, 'combined', query_options, iterator)
-  end
-
-  private
-
-  def _ping(ping_options = {})
     url_params = {}
     url_params["key"] = ping_options[:key] || "",
     url_params["unique_value"] = ping_options[:unique_value] || ""
@@ -76,7 +50,7 @@ class CountOnce
     PingResult.new(response.parsed_response)
   end
 
-  def _query(key_name, query_type, query_options = {}, iterator = nil)
+  def query(key_name, query_type, query_options = {}, iterator = nil)
     url_params = {}
     url_params["iterator"] = iterator if iterator
 
@@ -110,5 +84,21 @@ class CountOnce
     )
 
     return QueryResult.new(response.parsed_response)
+  end
+
+  def getUniques(key_name, query_options = {}, iterator = nil)
+    self.query(key_name, 'uniques', query_options, iterator)
+  end
+
+  def getCounts(key_name, query_options = {}, iterator = nil)
+    self.query(key_name, 'counts', query_options, iterator)
+  end
+
+  def getRevenue(key_name, query_options = {}, iterator = nil)
+    self.query(key_name, 'revenue', query_options, iterator)
+  end
+
+  def getCombined(key_name, query_options = {}, iterator = nil)
+    self.query(key_name, 'combined', query_options, iterator)
   end
 end
