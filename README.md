@@ -25,7 +25,7 @@ Or install it yourself as:
 require "countonce"
 
 co_client = CountOnce.new({
-  account_id: "account1",
+  account_id: "<account_id>",
   auth_token: "<your api auth token>"
 })
 
@@ -54,7 +54,7 @@ end
 require "countonce"
 
 co_client = CountOnce.new({
-  account_id: "account1",
+  account_id: "<account_id>",
   auth_token: "<your api auth token>"
 })
 
@@ -81,7 +81,7 @@ end
 require "countonce"
 
 co_client = CountOnce.new({
-  account_id: "account1", 
+  account_id: "<account_id>", 
   auth_token: "<your api auth token>"
 })
 
@@ -106,7 +106,7 @@ end
 require "countonce"
 
 co_client = CountOnce.new({
-  account_id: "account1", 
+  account_id: "<account_id>", 
   auth_token: "<your api auth token>"
 })
 
