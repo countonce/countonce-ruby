@@ -1,20 +1,20 @@
-require_relative 'lib/countonce/ruby/version'
+require_relative 'lib/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "countonce-ruby"
   spec.version       = CountOnce::VERSION
-  spec.authors       = [""]
-  spec.email         = [""]
+  spec.authors       = ["dummy_author"]
+  spec.email         = ["dummy_email@dummy_domain.com"]
 
   spec.summary       = %q{Wrapper for the CountOnce API}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+  # spec.metadata["homepage_uri"] = spec.homepage
+  # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
 
   # dependencies
   spec.add_dependency "httparty", "~> 0.18.0"
-  spec.add_dependency "concurrent-ruby", "~> 1.1.6"
+  # spec.add_dependency "concurrent-ruby", "~> 1.1.6"
 end
