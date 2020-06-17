@@ -61,12 +61,14 @@ class CountOnce
       query_options[:filter].each {|key, value| url_params["filter[#{key}]"] = value}
     end
 
+    
     if query_options[:include]
       if query_options[:include].is_a? Array
-        query_options[:include].each {|val| url_params["include[]"] = val}
-      else
-        url_params["include"] = query_options[:include]
+        # query_options[:include].each {|val| url_params["include[]"] = val}
+        query_options[:include] = query_options[:include].join(",")
       end
+      
+      url_params["include"] = query_options[:include]
     end
 
     url_params["start_date"] = query_options[:start_date] if query_options[:start_date]
