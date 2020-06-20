@@ -61,10 +61,8 @@ class CountOnce
       query_options[:filter].each {|key, value| url_params["filter[#{key}]"] = value}
     end
 
-    
     if query_options[:include]
       if query_options[:include].is_a? Array
-        # query_options[:include].each {|val| url_params["include[]"] = val}
         query_options[:include] = query_options[:include].join(",")
       end
       
@@ -92,8 +90,8 @@ class CountOnce
     self.query(key_name, 'uniques', query_options, iterator)
   end
 
-  def getCounts(key_name, query_options = {}, iterator = nil)
-    self.query(key_name, 'counts', query_options, iterator)
+  def getIncrements(key_name, query_options = {}, iterator = nil)
+    self.query(key_name, 'increments', query_options, iterator)
   end
 
   def getRevenue(key_name, query_options = {}, iterator = nil)
