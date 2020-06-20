@@ -7,7 +7,7 @@ Wrapper for the CountOnce API
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'countonce-ruby'
+gem 'countonce'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install countonce-ruby
+    $ gem install countonce
 
 ## Usage
 

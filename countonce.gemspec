@@ -1,7 +1,7 @@
 require_relative 'lib/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "countonce-ruby"
+  spec.name          = "countonce"
   spec.version       = CountOnce::VERSION
   spec.authors       = ["CountOnce"]
   spec.email         = ["info@countonce.com"]

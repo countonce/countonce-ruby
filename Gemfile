@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in countonce-ruby.gemspec
+# Specify your gem's dependencies in countonce.gemspec
 gemspec
 
 gem "rake", "~> 12.0"
